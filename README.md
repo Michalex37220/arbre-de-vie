@@ -1,18 +1,55 @@
-# arbre-de-vie
-dépendances :
-ollama
-llama 3.1
-python 3
-discord : Permet d'interagir avec l'API Discord.
-discord.ext.commands : Fournit un système de commandes pour les bots Discord.
-subprocess : Utilisé pour exécuter des commandes système (ici pour lancer Ollama).
-logging : Gère la journalisation des événements du bot.
-requests : Effectue des requêtes HTTP (ici pour interagir avec Ollama via une API locale).
-json : Manipule les fichiers JSON (chargement et sauvegarde du cache).
-os : Gère les opérations système (comme vérifier l'existence d'un fichier).
+# 🌳 Arbre de Vie
 
-pour utiliser l'arbre de vie veuillez installer ollama présent ici -> https://ollama.com/ puis installer llama3.1 afin d'éxécuter l'ia associé
-ensuite cloner le repository et executer le script arbre_de_vie.py dans un environnement adapté afin de se connecter au bot discord associé
+## 📋 Dépendances
+Avant d'utiliser ce projet, assurez-vous d'avoir installé les dépendances suivantes :
 
-fonctionnement :
-Ce script est un bot Discord utilisant la bibliothèque `discord.py` pour interagir avec les utilisateurs et répondre à leurs questions en appelant un modèle d'IA local via l'API d'**Ollama**. Il démarre en initialisant un système de **cache JSON** pour stocker les réponses et éviter de refaire les mêmes requêtes. Lorsqu'un utilisateur envoie une commande `.question <texte>`, le bot envoie la question à **Ollama** et récupère la réponse, qu'il affiche ensuite sur Discord. Le bot logge également les messages envoyés, modifiés ou supprimés, ainsi que les réactions et les entrées/sorties des membres sur le serveur. Il inclut aussi un **système de logging** pour suivre les erreurs et les événements importants. Enfin, un problème de sécurité majeur est la présence du **token du bot en clair dans le code**, ce qui peut compromettre l'accès au bot s'il est exposé publiquement.
+### 🔧 Outils requis
+- **Ollama** : Nécessaire pour exécuter le modèle d'IA local ([Installation ici](https://ollama.com/)).
+- **Llama 3.1** : Modèle utilisé pour générer les réponses.
+- **Python 3** : Langage de programmation utilisé.
+
+### 📦 Modules Python
+Installez les bibliothèques suivantes avec `pip` :
+```sh
+pip install discord requests python-dotenv
+```
+- **discord** : Permet d'interagir avec l'API Discord.
+- **discord.ext.commands** : Fournit un système de commandes pour les bots Discord.
+- **subprocess** : Utilisé pour exécuter des commandes système (ici pour lancer Ollama).
+- **logging** : Gère la journalisation des événements du bot.
+- **requests** : Effectue des requêtes HTTP (ici pour interagir avec Ollama via une API locale).
+- **json** : Manipule les fichiers JSON (chargement et sauvegarde du cache).
+- **os** : Gère les opérations système (comme vérifier l'existence d'un fichier).
+
+## 🚀 Installation et Utilisation
+
+1. **Installer Ollama** en suivant les instructions sur [https://ollama.com](https://ollama.com/).
+2. **Télécharger le modèle Llama 3.1** avec la commande :
+   ```sh
+   ollama pull llama3.1:latest
+   ```
+3. **Cloner ce repository** :
+   ```sh
+   git clone https://github.com/Michalex37220/arbre-de-vie.git
+   cd arbre-de-vie
+   ```
+
+4. **Exécuter le bot** :
+   ```sh
+   python arbre_de_vie.py
+   ```
+
+## ⚙️ Fonctionnement
+
+Ce script est un bot Discord qui permet aux utilisateurs de poser des questions à un modèle d'IA local via l'API d'**Ollama**. Il utilise un système de **cache JSON** pour éviter de refaire les mêmes requêtes. Lorsqu'un utilisateur envoie la commande :
+```sh
+.question <texte>
+```
+Le bot envoie la question à **Ollama**, récupère la réponse et la poste sur Discord.
+
+### 📜 Fonctionnalités principales
+- Gestion et enregistrement des messages envoyés, modifiés ou supprimés.
+- Suivi des réactions et des membres rejoignant/quittant le serveur.
+- **Logging** des événements et erreurs pour un meilleur débogage.
+
+
