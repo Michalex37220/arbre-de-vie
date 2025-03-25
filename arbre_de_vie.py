@@ -128,7 +128,7 @@ async def question(ctx, *, demande):
     reponse = reponse_par_llama(demande)
     await ctx.send(reponse)
 
-TOKEN = "MTM0OTQ0ODcyODc3MTMwMTQ1OQ.Ghff0c.EtXkwBuRYGdhp-OgO5VM83m0pGNnudOV799JkY"
+TOKEN = "voir discord"
 if not TOKEN:
     raise ValueError("Le token du bot Discord n'est pas défini !")
 
