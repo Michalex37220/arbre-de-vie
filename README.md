@@ -36,7 +36,7 @@ pip install discord requests python-dotenv
 
 4. **Exécuter le bot** :
    ```sh
-   python arbre_de_vie.py
+   python3 arbre_de_vie.py
    ```
 
 ## ⚙️ Fonctionnement
