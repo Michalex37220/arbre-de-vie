@@ -5,7 +5,6 @@ import logging
 import requests
 import json
 import os
-import re
 
 # Configuration du logging dans un fichier texte
 LOG_FILE = "logs.txt"
@@ -13,15 +12,6 @@ logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(
     logging.FileHandler(LOG_FILE, encoding="utf-8"),
     logging.StreamHandler()
 ])
-
-# Charger le contexte depuis le fichier
-CONTEXT_FILE = "contexte_complet.txt"
-if os.path.exists(CONTEXT_FILE):
-    with open(CONTEXT_FILE, "r", encoding="utf-8") as f:
-        CONTEXT = f.read()
-else:
-    logging.error("Le fichier contexte_complet.txt est introuvable !")
-    CONTEXT = ""
 
 CACHE_FILE = "cache_reponses.json"
 cache_reponses = {}
@@ -49,10 +39,9 @@ def reponse_par_llama(question):
 
     url = "http://localhost:11434/api/generate"
     data = {
-        "model": "llama3.1:latest",
-        "prompt": f"{CONTEXT}\n\nQuestion : {question}\nRéponse :",
+        "model": "arbre-de-vie",
+        "prompt": f"Question : {question}\nRéponse :",
         "stream": False,
-        "options": {"temperature": 0.3}
     }
     
     try:
@@ -94,43 +83,14 @@ async def on_message(message):
     logging.info(f"Message reçu de {message.author} : {message.content}")
     await bot.process_commands(message)
 
-@bot.event
-async def on_message_delete(message):
-    logging.warning(f"Message supprimé de {message.author} : {message.content}")
-
-@bot.event
-async def on_message_edit(before, after):
-    logging.info(f"Message édité de {before.author} : {before.content} -> {after.content}")
-
-@bot.event
-async def on_reaction_add(reaction, user):
-    logging.info(f"Réaction ajoutée par {user} : {reaction.emoji} sur {reaction.message.content}")
-
-@bot.event
-async def on_reaction_remove(reaction, user):
-    logging.info(f"Réaction retirée par {user} : {reaction.emoji} sur {reaction.message.content}")
-
-@bot.event
-async def on_member_join(member):
-    logging.info(f"{member} a rejoint le serveur.")
-
-@bot.event
-async def on_member_remove(member):
-    logging.info(f"{member} a quitté le serveur.")
-
-@bot.event
-async def on_member_update(before, after):
-    logging.info(f"Mise à jour de {before}: {before.roles} -> {after.roles}")
-
 @bot.command()
 async def question(ctx, *, demande):
     logging.info(f"Question posée : {demande}")
     reponse = reponse_par_llama(demande)
     await ctx.send(reponse)
 
-TOKEN = "VOTRE_TOKEN"
+TOKEN = "Votre_token"
 if not TOKEN:
     raise ValueError("Le token du bot Discord n'est pas défini !")
 
 bot.run(TOKEN)
-
