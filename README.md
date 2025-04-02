@@ -28,7 +28,7 @@ pip install discord requests python-dotenv
    ```sh
    ollama pull llama3.1:latest
    ```
-3. **Cloner ce repository** :
+3. **Cloner ce repository** (non obligatoire mais juste plus pratique):
    ```sh
    git clone https://github.com/Michalex37220/arbre-de-vie.git
    cd arbre-de-vie
