@@ -64,12 +64,6 @@ Pensez à **mettre régulièrement à jour votre version** du projet en récupé
 ```sh
 git pull origin main
 ```
-Si vous apportez des modifications au **contexte ou à tout autre fichier**, veillez à **committer vos changements** pour contribuer au développement d'Arbre de Vie. Utilisez :
-```sh
-git add .
-git commit -m "Mise à jour du contexte et améliorations"
-git push origin main
-```
 Votre participation est essentielle pour améliorer continuellement le projet ! 🚀
 
 💡 **Besoin d'aide ?** Contactez-moi sur GitHub ! 🚀
