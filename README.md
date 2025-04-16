@@ -32,16 +32,12 @@ pip install discord requests python-dotenv
 ## 🚀 Installation et Utilisation
 
 1. **Installer Ollama** en suivant les instructions sur [https://ollama.com](https://ollama.com/).
-2. **Télécharger le modèle Llama 3.1** avec la commande :
-   ```sh
-   ollama pull llama3.1:latest
-   ```
-3. **Cloner ce repository** (optionnel mais recommandé) :
+2. **Cloner ce repository** (optionnel mais recommandé) :
    ```sh
    git clone https://github.com/Michalex37220/arbre-de-vie.git
    cd arbre-de-vie
    ```
-4. **Exécuter le bot** :
+3. **Exécuter le bot** :
    ```sh
    python3 arbre_de_vie.py
    ```
@@ -66,6 +62,6 @@ git pull origin main
 ```
 Votre participation est essentielle pour améliorer continuellement le projet ! 🚀
 
-💡 **Besoin d'aide ?** Contactez-moi sur GitHub ! 🚀
+💡 **Besoin d'aide ?** Contactez-moi sur Discord ! 🚀
 
 
