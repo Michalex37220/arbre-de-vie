@@ -13,7 +13,7 @@ Avant d'utiliser ce projet, assurez-vous d'avoir installé les dépendances suiv
     ollama run arbre-de-vie
     ```
     Si une erreur s'affiche, contactez-moi. Si un chat apparaît, c'est que tout fonctionne correctement.
-- **Llama 3.1** : Modèle utilisé pour générer les réponses.
+- **nemotron-mini** : Modèle utilisé pour générer les réponses.
 - **Python 3** : Langage de programmation utilisé.
 
 ### 📦 Modules Python
