@@ -1,7 +1,7 @@
 # 🌳 Arbre de Vie
 
 ## 📋 Dépendances
-Avant d'utiliser ce projet, assurez-vous d'avoir installé les dépendances suivantes :
+Avant d'utiliser ce projet, assurez-vous d'avoir installé les dépendances suivantes (obligatoires) :
 
 ### 🔧 Outils requis
 - **Ollama** : Nécessaire pour exécuter le modèle d'IA local ([Installation ici](https://ollama.com/)). Ensuite, utilisez la commande :
