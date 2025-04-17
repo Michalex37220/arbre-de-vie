@@ -6,11 +6,11 @@ Avant d'utiliser ce projet, assurez-vous d'avoir installé les dépendances suiv
 ### 🔧 Outils requis
 - **Ollama** : Nécessaire pour exécuter le modèle d'IA local ([Installation ici](https://ollama.com/)). Ensuite, utilisez la commande :
     ```sh
-    ollama create arbre-de-vie -f Modelfile
+    ollama create michalex37/arbre_de_vie -f Modelfile
     ```
     Puis, vérifiez si l'arbre a bien été créé avec :
     ```sh
-    ollama run arbre-de-vie
+    ollama run michalex37/arbre_de_vie
     ```
     Si une erreur s'affiche, contactez-moi. Si un chat apparaît, c'est que tout fonctionne correctement.
 - **nemotron-mini** : Modèle utilisé pour générer les réponses.
@@ -59,6 +59,8 @@ Le bot envoie la question à **Ollama**, récupère la réponse et la poste sur 
 Pensez à **mettre régulièrement à jour votre version** du projet en récupérant les dernières modifications via :
 ```sh
 git pull origin main
+ou
+ollama push michalex37/arbre_de_vie (nécésite mon aprobation pour la clé publique)
 ```
 Votre participation est essentielle pour améliorer continuellement le projet ! 🚀
 
