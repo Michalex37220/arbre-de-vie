@@ -39,7 +39,7 @@ def reponse_par_llama(question):
 
     url = "http://localhost:11434/api/generate"
     data = {
-        "model": "arbre-de-vie",
+        "model": "michalex37/arbre_de_vie",
         "prompt": f"Question : {question}\nRéponse :",
         "stream": False,
     }
@@ -89,7 +89,7 @@ async def question(ctx, *, demande):
     reponse = reponse_par_llama(demande)
     await ctx.send(reponse)
 
-TOKEN = "Votre_token"
+TOKEN = "Votre_Token"
 if not TOKEN:
     raise ValueError("Le token du bot Discord n'est pas défini !")
 
