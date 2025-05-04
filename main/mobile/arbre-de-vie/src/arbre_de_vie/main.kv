@@ -1,0 +1,26 @@
+<RootWidget>:
+    orientation: "vertical"
+    padding: 20
+    spacing: 20
+
+    TextInput:
+        id: question_input
+        hint_text: "Pose ta question ici"
+        multiline: False
+        size_hint_y: None
+        height: "40dp"
+
+    Button:
+        text: "Envoyer"
+        size_hint_y: None
+        height: "40dp"
+        on_press: root.ask_question()
+
+    Label:
+        text: root.response_text
+        markup: True
+        halign: "left"
+        valign: "top"
+        text_size: self.width, None
+        size_hint_y: 1
+

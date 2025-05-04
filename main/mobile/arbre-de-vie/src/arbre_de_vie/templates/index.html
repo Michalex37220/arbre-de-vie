@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Arbre de Vie - Posez une question</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .container {
+      width: 90%;
+      max-width: 600px;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+    input[type="text"] {
+      width: 100%;
+      padding: 10px;
+      margin-top: 10px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    button {
+      width: 100%;
+      padding: 10px;
+      margin-top: 15px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #45a049;
+    }
+    .response, .error {
+      margin-top: 20px;
+      padding: 15px;
+      border-radius: 4px;
+    }
+    .response {
+      background-color: #f0f0f0;
+    }
+    .error {
+      background-color: #ffd0d0;
+      color: red;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <h1>Posez votre question à l'Arbre de Vie</h1>
+
+  <!-- Choix du serveur -->
+  <label for="ip">Adresse IP du serveur Ollama :</label>
+  <input type="text" id="ip" placeholder="Ex: 127.0.0.1 ou IP du téléphone" value="127.0.0.1">
+
+  <!-- Formulaire question -->
+  <label for="question">Votre question :</label>
+  <input type="text" id="question" placeholder="Entrez votre question" required>
+
+  <button onclick="envoyerQuestion()">Envoyer</button>
+
+  <div id="resultat" class="response" style="display:none;"></div>
+  <div id="erreur" class="error" style="display:none;"></div>
+</div>
+
+<script>
+  async function envoyerQuestion() {
+    const ip = document.getElementById("ip").value.trim();
+    const question = document.getElementById("question").value.trim();
+    const resultat = document.getElementById("resultat");
+    const erreur = document.getElementById("erreur");
+    resultat.style.display = "none";
+    erreur.style.display = "none";
+
+    if (!ip || !question) {
+      erreur.innerText = "Veuillez remplir l'adresse IP et votre question.";
+      erreur.style.display = "block";
+      return;
+    }
+
+    try {
+      const res = await fetch(`http://${ip}:11434/api/generate`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          model: "michalex37/arbre_de_vie",
+          prompt: `Question : ${question}\nRéponse :`,
+          stream: false
+        })
+      });
+
+      const data = await res.json();
+      resultat.innerText = data.response || "Pas de réponse.";
+      resultat.style.display = "block";
+    } catch (err) {
+      erreur.innerText = "Erreur lors de la requête. Vérifiez l'adresse IP ou l'état du serveur.";
+      erreur.style.display = "block";
+      console.error(err);
+    }
+  }
+</script>
+
+</body>
+</html>
+

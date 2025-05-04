@@ -1,0 +1,108 @@
+# This project was generated with 0.3.22 using template: https://github.com/beeware/briefcase-template@v0.3.22
+[tool.briefcase]
+project_name = "arbre de vie"
+bundle = "com.arbre-de-vie-bureau-dildoria"
+version = "0.0.1"
+url = "https://github.com/Michalex37220/arbre-de-vie"
+license.file = "LICENSE"
+author = "John Doe"
+author_email = "michhatake37@gmail.com"
+
+[tool.briefcase.app.arbre-de-vie]
+formal_name = "arbre de vie"
+description = "Vive la suprématie de Vannerie"
+long_description = """More details about the app should go here.
+"""
+sources = [
+    "src/arbre_de_vie",
+]
+test_sources = [
+    "tests",
+]
+
+requires = [
+    # Add your cross-platform app requirements here
+    "kivy",
+    "kivy_garden.webview",
+    "toga"
+]
+
+
+test_requires = [
+    # Add your cross-platform test requirements here
+]
+
+[tool.briefcase.app.arbre-de-vie.macOS]
+universal_build = true
+requires = [
+    # Add your macOS-specific app requirements here
+]
+
+[tool.briefcase.app.arbre-de-vie.linux]
+requires = [
+    # Add your Linux-specific app requirements here
+]
+
+[tool.briefcase.app.arbre-de-vie.linux.system.debian]
+system_requires = [
+    # Add any system packages needed at build the app here
+]
+
+system_runtime_requires = [
+    # Add any system packages needed at runtime here
+]
+
+[tool.briefcase.app.arbre-de-vie.linux.system.rhel]
+system_requires = [
+    # Add any system packages needed at build the app here
+]
+
+system_runtime_requires = [
+    # Add any system packages needed at runtime here
+]
+
+[tool.briefcase.app.arbre-de-vie.linux.system.suse]
+system_requires = [
+    # Add any system packages needed at build the app here
+]
+
+system_runtime_requires = [
+    # Add any system packages needed at runtime here
+]
+
+[tool.briefcase.app.arbre-de-vie.linux.system.arch]
+system_requires = [
+    # Add any system packages needed at build the app here
+]
+
+system_runtime_requires = [
+    # Add any system packages needed at runtime here
+]
+
+[tool.briefcase.app.arbre-de-vie.linux.flatpak]
+flatpak_runtime = "org.freedesktop.Platform"
+flatpak_runtime_version = "24.08"
+flatpak_sdk = "org.freedesktop.Sdk"
+
+[tool.briefcase.app.arbre-de-vie.windows]
+requires = [
+    # Add your Windows-specific app requirements here
+]
+
+# Mobile deployments
+[tool.briefcase.app.arbre-de-vie.iOS]
+requires = [
+    # Add your iOS-specific app requirements here
+]
+
+[tool.briefcase.app.arbre-de-vie.android]
+requires = [
+    # Add your Android-specific app requirements here
+]
+
+# Web deployments
+[tool.briefcase.app.arbre-de-vie.web]
+requires = [
+    # Add your web-specific app requirements here
+]
+
