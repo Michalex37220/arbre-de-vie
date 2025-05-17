@@ -1,4 +1,3 @@
-Avec plaisir ! Voici une version soignée, propre et professionnelle de ton README, en markdown bien structuré, avec une table des matières cliquable, des titres uniformes et une présentation agréable :  
 
 ---
 
